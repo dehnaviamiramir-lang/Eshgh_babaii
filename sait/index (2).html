@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>برای پیشی من ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Vazirmatn',sans-serif;
+}
+
+/* 🌑 فقط تیره‌تر شد (همون حالت خودت ولی عمیق‌تر) */
+body{
+background:radial-gradient(circle at top,#0d0012,#050008,#000000);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+overflow-x:hidden;
+color:white;
+}
+
+/* افکت نور بنفش ملایم */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:radial-gradient(circle,rgba(192,132,252,0.10),transparent 60%);
+pointer-events:none;
+animation:fog 10s ease-in-out infinite alternate;
+}
+
+@keyframes fog{
+from{transform:translateY(0px);}
+to{transform:translateY(-25px);}
+}
+
+/* قفل قبل شروع */
+body.locked{
+overflow:hidden;
+height:100vh;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* 🎬 CINEMATIC INTRO (دست نخورده) */
+#cinemaIntro{
+position:fixed;
+inset:0;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:9999;
+animation:fadeOut 2.5s ease forwards;
+animation-delay:2.8s;
+}
+
+#cinemaIntro h1{
+color:white;
+font-size:clamp(1.5rem,4vw,3rem);
+opacity:0;
+animation:fadeInText 2s ease forwards;
+text-align:center;
+}
+
+#cinemaIntro p{
+margin-top:15px;
+color:#ffb6c1;
+opacity:0;
+animation:fadeInText 2s ease forwards;
+animation-delay:1s;
+}
+
+@keyframes fadeInText{
+to{opacity:1; transform:scale(1.05);}
+}
+
+@keyframes fadeOut{
+to{opacity:0; visibility:hidden;}
+}
+
+/* START (بدون تغییر) */
+.start-screen{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.start-screen h1{
+font-size:clamp(1.5rem,4vw,3rem);
+margin-bottom:20px;
+text-shadow:0 0 15px rgba(255,255,255,.6);
+}
+
+.start-btn{
+padding:15px 35px;
+font-size:1.2rem;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff4f81;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+/* HERO */
+.hero{
+min-height:100vh;
+display:none;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+animation:heroIn 2s ease forwards;
+}
+
+@keyframes heroIn{
+from{
+opacity:0;
+transform:scale(1.1);
+filter:blur(10px);
+}
+to{
+opacity:1;
+transform:scale(1);
+filter:blur(0);
+}
+}
+
+/* 🔥 18:18 برگشت + قشنگ‌تر */
+.time{
+font-size:clamp(2rem,6vw,5rem);
+font-weight:bold;
+margin-top:20px;
+animation:pulse 2s infinite;
+text-shadow:0 0 20px rgba(192,132,252,.6);
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.08);}
+100%{transform:scale(1);}
+}
+
+/* ✨ اسکرول سینمایی بدون حذف محتوا */
+.card{
+max-width:900px;
+margin:40px auto;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(15px);
+padding:25px;
+border-radius:30px;
+line-height:2.2;
+box-shadow:0 10px 40px rgba(0,0,0,.25);
+opacity:0;
+transform:translateY(60px);
+transition:all 1.1s ease;
+border:1px solid rgba(192,132,252,.15);
+}
+
+.card.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* MEMORY (بدون تغییر) */
+.memory{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:20px;
+}
+
+.box{
+background:rgba(255,255,255,.15);
+padding:20px;
+border-radius:20px;
+width:250px;
+text-align:center;
+}
+
+/* IMAGE */
+.final-img{
+width:90%;
+max-width:500px;
+display:block;
+margin:30px auto;
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,.4);
+}
+
+/* 💜 قلب‌ها بنفش */
+.heart{
+position:fixed;
+top:-20px;
+color:#c084fc;
+pointer-events:none;
+animation:fall linear forwards;
+filter:drop-shadow(0 0 10px #c084fc);
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+footer{
+padding:50px;
+text-align:center;
+font-size:1.1rem;
+}
+
+/* typing */
+#typedText{
+font-size:1.2rem;
+margin-top:10px;
+min-height:40px;
+}
+
+/* smooth scroll */
+html{
+scroll-behavior:smooth;
+}
+</style>
+</head>
+
+<body class="locked">
+
+<!-- CINEMATIC INTRO -->
+<div id="cinemaIntro">
+<h1>یک داستان واقعی...</h1>
+<p>که هیچوقت ساده شروع نشد ❤️</p>
+</div>
+
+<!-- AUDIO -->
+<audio id="bgMusic" loop preload="auto">
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- START -->
+<div class="start-screen" id="startScreen">
+<h1>برای شروع قصه ما ❤️</h1>
+<button class="start-btn" onclick="startPage()">شروع ❤️</button>
+<div id="typedText"></div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+
+<h1>برای پیشی من، ستایش ❤️</h1>
+
+<div class="time">18:18</div>
+
+<p style="margin-top:20px;">
+یه ساعت معمولی برای بقیه...
+<br>
+ولی برای من یادآور قشنگ‌ترین لحظه‌های زندگیه ❤️
+</p>
+
+<div id="daysTogether" style="margin-top:20px;font-size:1.3rem;"></div>
+
+</section>
+
+<!-- متن تو (دست نخورده 100%) -->
+<div class="card">
+<h2>💌 حرف دل من</h2>
+<p>
+هنوز یادمه اولین باری که بهت پیام دادم.
+<br><br>
+گفتم: «میشه بهت بگن پیشی؟»
+<br><br>
+خندیدی و گفتی: «میشه، آره... ولی حالا چرا پیشی؟»
+<br><br>
+و من گفتم: «چون دوست دارم مثل گربه زورت بزنم.»
+<br><br>
+گفتی: «من زور می‌زنم، تو گاز بگیر.»
+<br><br>
+و از همونجا قصه ما شروع شد...
+<br><br>
+از همون روزی که وارد زندگیم شدی، بهت می‌گفتم دختر بابا، زندگیم، همه داراییم، و هزار تا اسم قشنگ دیگه...
+<br><br>
+اما بین همه‌شون، پیشی یه چیز دیگه بود.
+<br><br>
+یک سال کنار هم خندیدیم، شیطنت کردیم، حرف‌هایی زدیم که فقط خودمون می‌فهمیدیم، رویا ساختیم، برای ماریا و مسیحا اسم انتخاب کردیم، دست همدیگه رو گرفتیم، عکس گرفتیم، و خاطره‌هایی ساختیم که برای همیشه توی قلب من می‌مونن.
+<br><br>
+اما کنار همه این خاطره‌های قشنگ، یه حقیقت هم هست.
+<br><br>
+من اشتباه کردم.
+<br><br>
+خیلی وقت‌ها با گیر دادن، اذیت کردن، اصرار بیجا، و رفتارهایی که نباید انجام می‌دادم، باعث ناراحتیت شدم.
+<br><br>
+تو بارها بهم فرصت دادی. بیشتر از چیزی که حقم بود.
+<br><br>
+و من همیشه قدر اون فرصت‌ها رو اون موقع نفهمیدم.
+<br><br>
+این صفحه برای بهونه آوردن نیست. برای فرار از مسئولیت هم نیست.
+<br><br>
+فقط می‌خوام بدونی که اشتباهاتم رو می‌بینم. می‌فهمم چقدر ناراحتت کردم. و بابتش واقعاً متأسفم.
+<br><br>
+پیشی...
+<br><br>
+من هنوز همون آدمی‌ام که وقتی اسم تو میاد لبخند می‌زنه. هنوز وقتی ساعت ۱۸:۱۸ رو می‌بینم یاد تو می‌افتم. هنوز وقتی به آینده فکر می‌کنم، خاطره‌های تو از ذهنم رد میشن.
+<br><br>
+و هنوز هم...
+<br><br>
+۲۰۰۰۰۰۰۰۰۰۰۰۰۹۰۰۰۰۰۰۰۰۰۰۰۰۰۸۰۰۰۰۰۰۰۰۰۰۰۰۰۷۰۰۰۰۰۰۰۰۰۰۰۰۶۰۰۰۰۰۰۰۰۰۰۰۵۰۰۰۰۰۰۰۰۰۰۰...
+<br><br>
+تا بی‌نهایت عاشقتم.
+<br><br>
+فقط دلم می‌خواست این بار، بدون دعوا، بدون لجبازی، بدون بهونه...
+<br><br>
+حرف دلم رو کامل بخونی.
+<br><br>
+دوستت دارم، پیشی ❤️
+</p>
+</div>
+
+<div class="card">
+<h2>✨ خاطره‌های ما ✨</h2>
+<div class="memory">
+<div class="box">🐱<br><br>اولین پیام<br>«میشه بهت بگن پیشی؟»</div>
+<div class="box">🕕<br><br>18:18<br>قشنگ‌ترین ساعت دنیا</div>
+<div class="box">👶<br><br>رویاها<br>ماریا و مسیحا</div>
+</div>
+</div>
+
+<img src="final.jpg" class="final-img">
+
+<footer>برای همیشه ❤️</footer>
+
+<script>
+
+// hearts
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="💜";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+15)+"px";
+heart.style.animationDuration=(Math.random()*4+4)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),8000);
+}
+setInterval(createHeart,200);
+
+// scroll reveal
+function reveal(){
+document.querySelectorAll(".card").forEach(c=>{
+const r=c.getBoundingClientRect();
+if(r.top < window.innerHeight-80){
+c.classList.add("show");
+}
+});
+}
+window.addEventListener("scroll",reveal);
+
+// start
+function startPage(){
+document.getElementById("startScreen").style.display="none";
+document.getElementById("hero").style.display="flex";
+document.body.classList.remove("locked");
+
+const music=document.getElementById("bgMusic");
+music.volume=0;
+music.play();
+
+let v=0;
+let fade=setInterval(()=>{
+if(v<0.7){v+=0.05; music.volume=v;}
+else clearInterval(fade);
+},120);
+
+window.scrollTo({top:0,behavior:"smooth"});
+reveal();
+}
+</script>
+
+</body>
+</html>
